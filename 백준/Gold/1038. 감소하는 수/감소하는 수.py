@@ -30,96 +30,18 @@ if N>=10:
             else:
                 find_index = True
                 cnt_index = False
-                if digit_index == 1:
-                    z = ''
-                    p = 1
-                    for _ in range(1):
-                        z = y[digits-p] + z
-                        p += 1
-                    b = 10-int(z)
-                    i += b
-                    break
-                elif digit_index == 2:
-                    z = ''
-                    p = 1
-                    for _ in range(2):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 110-int(z)
-                    i += b
-                    break
-                elif digit_index == 3:
-                    z = ''
-                    p = 1
-                    for _ in range(3):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 1210-int(z)
-                    i += b
-                    break
-                elif digit_index == 4:
-                    z = ''
-                    p = 1
-                    for _ in range(4):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 13210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 5:
-                    z = ''
-                    p = 1
-                    for _ in range(5):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 143210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 6:
-                    z = ''
-                    p = 1
-                    for _ in range(6):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 1543210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 7:
-                    z = ''
-                    p = 1
-                    for _ in range(7):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 16543210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 8:
-                    z = ''
-                    p = 1
-                    for _ in range(8):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 176543210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 9:
-                    z = ''
-                    p = 1
-                    for _ in range(9):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 1876543210 - int(z)
-                    i += b
-                    break
-                elif digit_index == 10:
-                    z = ''
-                    p = 1
-                    for _ in range(10):
-                        z = y[digits - p] + z
-                        p += 1
-                    b = 19876543210 - int(z)
-                    i += b
-                    break
+                # digit_list = [[],[10],[110],[1210],[13210],[143210],[1543210],[16543210],[176543210],[1876543210],[19876543210]]
+                digit_list = [0, 10, 110, 1210, 13210, 143210, 1543210, 16543210, 176543210, 1876543210, 19876543210]
+
+                z = ''
+                p = 1
+                for _ in range(digit_index):
+                    z = y[digits - p] + z
+                    p += 1
+                b = digit_list[digit_index] - int(z)
+                i += b
+                break
+
         if cnt_index == True:
             cnt += 1
         if cnt == N:
