@@ -15,6 +15,34 @@ for i in range(N):
                 start_i = i
                 start_j = j
 print(start_i+1, start_j+1)
+# 방법 1
+# 델타로 팔,허리 구하기
+for di, dj in [[0,-1],[0,1],[1,0]]:
+    cnt = 0
+    for k in range(1,N):
+        if 0<=start_i+di*k<N and 0<=start_j+dj*k<N and arr[start_i+di*k][start_j+dj*k] == '*':
+            cnt += 1
+        else:
+            break
+    print(cnt, end=' ')
+# 다리구하기
+cnt1 = 0
+cnt2 = 0
+for i in range(N-1,-1,-1):
+    if arr[i][start_j-1] == '*':
+        cnt1 += 1
+    if cnt1 >= 1 and arr[i][start_j-1] == '_':
+        print(cnt1, end=' ')
+        break
+for i in range(N-1, -1, -1):
+    if arr[i][start_j+1] == '*':
+        cnt2 += 1
+    if cnt2 >= 1 and arr[i][start_j+1] == '_':
+        print(cnt2)
+        break
+
+# 방법 2
+# 하나씩 구하기
 ans1 = 0
 ans2 = 0
 ans3 = 0
